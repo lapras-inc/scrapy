@@ -1,0 +1,253 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008–2018, Scrapy developers
+# This file is distributed under the same license as the Scrapy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Scrapy 1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../topics/telnetconsole.rst:5
+msgid "Telnet Console"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:10
+msgid ""
+"Scrapy comes with a built-in telnet console for inspecting and "
+"controlling a Scrapy running process. The telnet console is just a "
+"regular python shell running inside the Scrapy process, so you can do "
+"literally anything from it."
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:14
+msgid ""
+"The telnet console is a :ref:`built-in Scrapy extension <topics-"
+"extensions-ref>` which comes enabled by default, but you can also disable"
+" it if you want. For more information about the extension itself see :ref"
+":`topics-extensions-ref-telnetconsole`."
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:22
+msgid "How to access the telnet console"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:24
+msgid ""
+"The telnet console listens in the TCP port defined in the "
+":setting:`TELNETCONSOLE_PORT` setting, which defaults to ``6023``. To "
+"access the console you need to type::"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:31
+msgid ""
+"You need the telnet program which comes installed by default in Windows, "
+"and most Linux distros."
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:35
+msgid "Available variables in the telnet console"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:37
+msgid ""
+"The telnet console is like a regular Python shell running inside the "
+"Scrapy process, so you can do anything from it including importing new "
+"modules, etc."
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:40
+msgid ""
+"However, the telnet console comes with some default variables defined for"
+" convenience:"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:44
+msgid "Shortcut"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:44
+msgid "Description"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:46
+msgid "``crawler``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:46
+msgid "the Scrapy Crawler (:class:`scrapy.crawler.Crawler` object)"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:48
+msgid "``engine``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:48
+msgid "Crawler.engine attribute"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:50
+msgid "``spider``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:50
+msgid "the active spider"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:52
+msgid "``slot``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:52
+msgid "the engine slot"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:54
+msgid "``extensions``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:54
+msgid "the Extension Manager (Crawler.extensions attribute)"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:56
+msgid "``stats``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:56
+msgid "the Stats Collector (Crawler.stats attribute)"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:58
+msgid "``settings``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:58
+msgid "the Scrapy settings object (Crawler.settings attribute)"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:60
+msgid "``est``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:60
+msgid "print a report of the engine status"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:62
+msgid "``prefs``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:62 ../../topics/telnetconsole.rst:66
+msgid "for memory debugging (see :ref:`topics-leaks`)"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:64
+msgid "``p``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:64
+msgid "a shortcut to the `pprint.pprint`_ function"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:66
+msgid "``hpy``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:72
+msgid "Telnet console usage examples"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:74
+msgid "Here are some example tasks you can do with the telnet console:"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:77
+msgid "View engine status"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:79
+msgid ""
+"You can use the ``est()`` method of the Scrapy engine to quickly show its"
+" state using the telnet console::"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:104
+msgid "Pause, resume and stop the Scrapy engine"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:106
+msgid "To pause::"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:112
+msgid "To resume::"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:118
+msgid "To stop::"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:125
+msgid "Telnet Console signals"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:130
+msgid ""
+"Sent just before the telnet console is opened. You can hook up to this "
+"signal to add, remove or update the variables that will be available in "
+"the telnet local namespace. In order to do that, you need to update the "
+"``telnet_vars`` dict in your handler."
+msgstr ""
+
+#: ../../topics/telnetconsole.rst
+msgid "Parameters"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:135
+msgid "the dict of telnet variables"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:139
+msgid "Telnet settings"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:141
+msgid "These are the settings that control the telnet console's behaviour:"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:146
+msgid "TELNETCONSOLE_PORT"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:148
+msgid "Default: ``[6023, 6073]``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:150
+msgid ""
+"The port range to use for the telnet console. If set to ``None`` or "
+"``0``, a dynamically assigned port is used."
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:157
+msgid "TELNETCONSOLE_HOST"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:159
+msgid "Default: ``'127.0.0.1'``"
+msgstr ""
+
+#: ../../topics/telnetconsole.rst:161
+msgid "The interface the telnet console should listen on"
+msgstr ""
+

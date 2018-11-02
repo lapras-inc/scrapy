@@ -218,3 +218,9 @@ linkcheck_ignore = [
     'http://localhost:\d+', 'http://hg.scrapy.org',
     'http://directory.google.com/'
 ]
+
+# Options for i18n
+# ----------------
+
+locale_dirs = ['locale/']
+gettext_compact = False
