@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2016, Scrapy developers
+# This file is distributed under the same license as the Scrapy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Scrapy 1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-07 14:19+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../topics/firefox.rst:5
+msgid "Using Firefox for scraping"
+msgstr ""
+
+#: ../../topics/firefox.rst:7
+msgid ""
+"Here is a list of tips and advice on using Firefox for scraping, along "
+"with a list of useful Firefox add-ons to ease the scraping process."
+msgstr ""
+
+#: ../../topics/firefox.rst:13
+msgid "Caveats with inspecting the live browser DOM"
+msgstr ""
+
+#: ../../topics/firefox.rst:15
+msgid ""
+"Since Firefox add-ons operate on a live browser DOM, what you'll actually"
+" see when inspecting the page source is not the original HTML, but a "
+"modified one after applying some browser clean up and executing "
+"Javascript code.  Firefox, in particular, is known for adding ``<tbody>``"
+" elements to tables.  Scrapy, on the other hand, does not modify the "
+"original page HTML, so you won't be able to extract any data if you use "
+"``<tbody>`` in your XPath expressions."
+msgstr ""
+
+#: ../../topics/firefox.rst:22
+msgid ""
+"Therefore, you should keep in mind the following things when working with"
+" Firefox and XPath:"
+msgstr ""
+
+#: ../../topics/firefox.rst:25
+msgid ""
+"Disable Firefox Javascript while inspecting the DOM looking for XPaths to"
+" be used in Scrapy"
+msgstr ""
+
+#: ../../topics/firefox.rst:28
+msgid ""
+"Never use full XPath paths, use relative and clever ones based on "
+"attributes (such as ``id``, ``class``, ``width``, etc) or any identifying"
+" features like ``contains(@href, 'image')``."
+msgstr ""
+
+#: ../../topics/firefox.rst:32
+msgid ""
+"Never include ``<tbody>`` elements in your XPath expressions unless you "
+"really know what you're doing"
+msgstr ""
+
+#: ../../topics/firefox.rst:38
+msgid "Useful Firefox add-ons for scraping"
+msgstr ""
+
+#: ../../topics/firefox.rst:41
+msgid "Firebug"
+msgstr ""
+
+#: ../../topics/firefox.rst:43
+msgid ""
+"`Firebug`_ is a widely known tool among web developers and it's also very"
+" useful for scraping. In particular, its `Inspect Element`_ feature comes"
+" very handy when you need to construct the XPaths for extracting data "
+"because it allows you to view the HTML code of each page element while "
+"moving your mouse over it."
+msgstr ""
+
+#: ../../topics/firefox.rst:49
+msgid ""
+"See :ref:`topics-firebug` for a detailed guide on how to use Firebug with"
+" Scrapy."
+msgstr ""
+
+#: ../../topics/firefox.rst:53
+msgid "XPather"
+msgstr ""
+
+#: ../../topics/firefox.rst:55
+msgid "`XPather`_ allows you to test XPath expressions directly on the pages."
+msgstr ""
+
+#: ../../topics/firefox.rst:58
+msgid "XPath Checker"
+msgstr ""
+
+#: ../../topics/firefox.rst:60
+msgid ""
+"`XPath Checker`_ is another Firefox add-on for testing XPaths on your "
+"pages."
+msgstr ""
+
+#: ../../topics/firefox.rst:63
+msgid "Tamper Data"
+msgstr ""
+
+#: ../../topics/firefox.rst:65
+msgid ""
+"`Tamper Data`_ is a Firefox add-on which allows you to view and modify "
+"the HTTP request headers sent by Firefox. Firebug also allows to view "
+"HTTP headers, but not to modify them."
+msgstr ""
+
+#: ../../topics/firefox.rst:70
+msgid "Firecookie"
+msgstr ""
+
+#: ../../topics/firefox.rst:72
+msgid ""
+"`Firecookie`_ makes it easier to view and manage cookies. You can use "
+"this extension to create a new cookie, delete existing cookies, see a "
+"list of cookies for the current site, manage cookies permissions and a "
+"lot more."
+msgstr ""
+

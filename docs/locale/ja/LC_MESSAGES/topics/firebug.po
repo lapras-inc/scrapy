@@ -1,0 +1,199 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008-2016, Scrapy developers
+# This file is distributed under the same license as the Scrapy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Scrapy 1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-07 14:19+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../topics/firebug.rst:5
+msgid "Using Firebug for scraping"
+msgstr ""
+
+#: ../../topics/firebug.rst:7
+msgid ""
+"Google Directory, the example website used in this guide is no longer "
+"available as it `has been shut down by Google`_. The concepts in this "
+"guide are still valid though. If you want to update this guide to use a "
+"new (working) site, your contribution will be more than welcome!. See "
+":ref:`topics-contributing` for information on how to do so."
+msgstr ""
+
+#: ../../topics/firebug.rst:14
+msgid "Introduction"
+msgstr ""
+
+#: ../../topics/firebug.rst:16
+msgid ""
+"This document explains how to use `Firebug`_ (a Firefox add-on) to make "
+"the scraping process easier and more fun. For other useful Firefox add-"
+"ons see :ref:`topics-firefox-addons`. There are some caveats with using "
+"Firefox add-ons to inspect pages, see :ref:`topics-firefox-livedom`."
+msgstr ""
+
+#: ../../topics/firebug.rst:21
+msgid ""
+"In this example, we'll show how to use `Firebug`_ to scrape data from the"
+" `Google Directory`_, which contains the same data as the `Open Directory"
+" Project`_ used in the :ref:`tutorial <intro-tutorial>` but with a "
+"different face."
+msgstr ""
+
+#: ../../topics/firebug.rst:30
+msgid ""
+"Firebug comes with a very useful feature called `Inspect Element`_ which "
+"allows you to inspect the HTML code of the different page elements just "
+"by hovering your mouse over them. Otherwise you would have to search for "
+"the tags manually through the HTML body which can be a very tedious task."
+msgstr ""
+
+#: ../../topics/firebug.rst:37
+msgid ""
+"In the following screenshot you can see the `Inspect Element`_ tool in "
+"action."
+msgstr ""
+
+#: ../../topics/firebug.rst:44
+msgid ""
+"At first sight, we can see that the directory is divided in categories, "
+"which are also divided in subcategories."
+msgstr ""
+
+#: ../../topics/firebug.rst:47
+msgid ""
+"However, it seems that there are more subcategories than the ones being "
+"shown in this page, so we'll keep looking:"
+msgstr ""
+
+#: ../../topics/firebug.rst:55
+msgid ""
+"As expected, the subcategories contain links to other subcategories, and "
+"also links to actual websites, which is the purpose of the directory."
+msgstr ""
+
+#: ../../topics/firebug.rst:59
+msgid "Getting links to follow"
+msgstr ""
+
+#: ../../topics/firebug.rst:61
+msgid "By looking at the category URLs we can see they share a pattern:"
+msgstr ""
+
+#: ../../topics/firebug.rst:63
+msgid "http://directory.google.com/Category/Subcategory/Another_Subcategory"
+msgstr ""
+
+#: ../../topics/firebug.rst:65
+msgid ""
+"Once we know that, we are able to construct a regular expression to "
+"follow those links. For example, the following one::"
+msgstr ""
+
+#: ../../topics/firebug.rst:70
+msgid ""
+"So, based on that regular expression we can create the first crawling "
+"rule::"
+msgstr ""
+
+#: ../../topics/firebug.rst:77
+msgid ""
+"The :class:`~scrapy.spiders.Rule` object instructs "
+":class:`~scrapy.spiders.CrawlSpider` based spiders how to follow the "
+"category links. ``parse_category`` will be a method of the spider which "
+"will process and extract data from those pages."
+msgstr ""
+
+#: ../../topics/firebug.rst:82
+msgid "This is how the spider would look so far::"
+msgstr ""
+
+#: ../../topics/firebug.rst:104
+msgid "Extracting the data"
+msgstr ""
+
+#: ../../topics/firebug.rst:106
+msgid "Now we're going to write the code to extract data from those pages."
+msgstr ""
+
+#: ../../topics/firebug.rst:108
+msgid ""
+"With the help of Firebug, we'll take a look at some page containing links"
+" to websites (say http://directory.google.com/Top/Arts/Awards/) and find "
+"out how we can extract those links using :ref:`Selectors <topics-"
+"selectors>`. We'll also use the :ref:`Scrapy shell <topics-shell>` to "
+"test those XPath's and make sure they work as we expect."
+msgstr ""
+
+#: ../../topics/firebug.rst:119
+msgid ""
+"As you can see, the page markup is not very descriptive: the elements "
+"don't contain ``id``, ``class`` or any attribute that clearly identifies "
+"them, so we'll use the ranking bars as a reference point to select the "
+"data to extract when we construct our XPaths."
+msgstr ""
+
+#: ../../topics/firebug.rst:124
+msgid ""
+"After using FireBug, we can see that each link is inside a ``td`` tag, "
+"which is itself inside a ``tr`` tag that also contains the link's ranking"
+" bar (in another ``td``)."
+msgstr ""
+
+#: ../../topics/firebug.rst:128
+msgid ""
+"So we can select the ranking bar, then find its parent (the ``tr``), and "
+"then finally, the link's ``td`` (which contains the data we want to "
+"scrape)."
+msgstr ""
+
+#: ../../topics/firebug.rst:131
+msgid "This results in the following XPath::"
+msgstr ""
+
+#: ../../topics/firebug.rst:135
+msgid ""
+"It's important to use the :ref:`Scrapy shell <topics-shell>` to test "
+"these complex XPath expressions and make sure they work as expected."
+msgstr ""
+
+#: ../../topics/firebug.rst:138
+msgid ""
+"Basically, that expression will look for the ranking bar's ``td`` "
+"element, and then select any ``td`` element who has a descendant ``a`` "
+"element whose ``href`` attribute contains the string ``#pagerank``\""
+msgstr ""
+
+#: ../../topics/firebug.rst:142
+msgid ""
+"Of course, this is not the only XPath, and maybe not the simpler one to "
+"select that data. Another approach could be, for example, to find any "
+"``font`` tags that have that grey colour of the links,"
+msgstr ""
+
+#: ../../topics/firebug.rst:146
+msgid "Finally, we can write our ``parse_category()`` method::"
+msgstr ""
+
+#: ../../topics/firebug.rst:160
+msgid ""
+"Be aware that you may find some elements which appear in Firebug but not "
+"in the original HTML, such as the typical case of ``<tbody>`` elements."
+msgstr ""
+
+#: ../../topics/firebug.rst:164
+msgid ""
+"or tags which Therefer   in page HTML sources may on Firebug inspects the"
+" live DOM"
+msgstr ""
+

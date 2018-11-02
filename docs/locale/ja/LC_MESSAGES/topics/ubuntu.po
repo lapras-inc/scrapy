@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2008–2018, Scrapy developers
+# This file is distributed under the same license as the Scrapy package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Scrapy 1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../topics/ubuntu.rst:7
+msgid "Ubuntu packages"
+msgstr ""
+
+#: ../../topics/ubuntu.rst:11
+msgid ""
+"`Scrapinghub`_ publishes apt-gettable packages which are generally "
+"fresher than those in Ubuntu, and more stable too since they're "
+"continuously built from `GitHub repo`_ (master & stable branches) and so "
+"they contain the latest bug fixes."
+msgstr ""
+
+#: ../../topics/ubuntu.rst:16
+msgid ""
+"These packages are currently not updated and may not work on Ubuntu 16.04"
+" and above, see :issue:`2076` and :issue:`2137`."
+msgstr ""
+
+#: ../../topics/ubuntu.rst:19
+msgid "To use the packages:"
+msgstr ""
+
+#: ../../topics/ubuntu.rst:21
+msgid "Import the GPG key used to sign Scrapy packages into APT keyring::"
+msgstr ""
+
+#: ../../topics/ubuntu.rst:25
+msgid ""
+"Create `/etc/apt/sources.list.d/scrapy.list` file using the following "
+"command::"
+msgstr ""
+
+#: ../../topics/ubuntu.rst:29
+msgid "Update package lists and install the scrapy package:"
+msgstr ""
+
+#: ../../topics/ubuntu.rst:35
+msgid "Repeat step 3 if you are trying to upgrade Scrapy."
+msgstr ""
+
+#: ../../topics/ubuntu.rst:37
+msgid ""
+"`python-scrapy` is a different package provided by official debian "
+"repositories, it's very outdated and it isn't supported by Scrapy team."
+msgstr ""
+
