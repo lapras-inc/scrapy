@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../intro/examples.rst:5
 msgid "Examples"
-msgstr ""
+msgstr "実例"
 
 #: ../../intro/examples.rst:7
 msgid ""
@@ -29,6 +29,10 @@ msgid ""
 "for http://quotes.toscrape.com, one using CSS selectors and another one "
 "using XPath expressions."
 msgstr ""
+"物事を学ぶ上で最善の方法は実例を真似ることであり、これはScrapyも例外ではありません。"
+"そのため、quotesbot_ というScrapyのプロジェクトがあります。このプロジェクトでScrapyを試し、学ぶことができます。"
+"このプロジェクトには http://quotes.toscrape.com に対する2つのSpiderが含まれています。"
+"一方はCSSセレクタを使用し、もう一方はXPath式を使用しています。"
 
 #: ../../intro/examples.rst:13
 msgid ""
@@ -36,6 +40,8 @@ msgid ""
 "https://github.com/scrapy/quotesbot. You can find more information about "
 "it in the project's README."
 msgstr ""
+"quotesbot_ プロジェクトは https://github.com/scrapy/quotesbot から利用できます。"
+"より詳しい情報については quotesbot_ のREADMEにあります。"
 
 #: ../../intro/examples.rst:16
 msgid ""
@@ -43,4 +49,6 @@ msgid ""
 " download the project as a zip file by clicking `here "
 "<https://github.com/scrapy/quotesbot/archive/master.zip>`_."
 msgstr ""
-
+"もしあなたがgitに慣れているなら、コードをチェックアウトすることができます。"
+"あるいは `ここ <https://github.com/scrapy/quotesbot/archive/master.zip>`_ をクリックしてzip形式で"
+"プロジェクトをダウンロードすることもできます。"
