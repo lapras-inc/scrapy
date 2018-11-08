@@ -52,15 +52,15 @@ msgstr "サイトをクロールしてデータを抽出する :ref:`Spider <top
 
 #: ../../intro/tutorial.rst:17
 msgid "Exporting the scraped data using the command line"
-msgstr "コマンドラインを使用して抽出したデータをエクスポートする"
+msgstr "コマンドラインを使用して抽出したデータをエクスポート"
 
 #: ../../intro/tutorial.rst:18
 msgid "Changing spider to recursively follow links"
-msgstr "再帰的にリンクをたどるようにSpiderを変更する"
+msgstr "再帰的にリンクをたどるようにSpiderを変更"
 
 #: ../../intro/tutorial.rst:19 ../../intro/tutorial.rst:673
 msgid "Using spider arguments"
-msgstr "引数を使用する"
+msgstr "引数の使用"
 
 #: ../../intro/tutorial.rst:21
 msgid ""
@@ -89,7 +89,7 @@ msgid ""
 "look at `this list of Python resources for non-programmers`_."
 msgstr ""
 "プログラミング初心者でPythonを使いたいのであれば、"
-"オンラインの本 `Learn Python The Hard Way`_ を参考にすると良いでしょう。"
+"オンラインで公開されている `Learn Python The Hard Way`_ を参考にすると良いでしょう。"
 "また、 `非プログラマーのためのPythonリソースのリスト`_ を見てみるのも良いでしょう。"
 
 #: ../../intro/tutorial.rst:41
@@ -171,7 +171,7 @@ msgid ""
 "that holds the page content and has further helpful methods to handle it."
 msgstr ""
 ":meth:`~scrapy.spiders.Spider.parse`: "
-"各リクエストに対するダウンロードされたレスポンスを処理するためのメソッド。"
+"各リクエストによってダウンロードされたレスポンスを処理するためのメソッドです。"
 "responseパラメータはページコンテンツを保持する :class:`~scrapy.http.TextResponse` のインスタンスであり、"
 "それを処理するための役立つメソッドがあります。"
 
@@ -205,7 +205,7 @@ msgid ""
 msgstr ""
 "このコマンドは、先ほど追加した ``quotes`` という名前のSpiderを実行し、"
 " ``quotes.toscrape.com`` ドメインにいくつかのリクエストを送信します。"
-"次のような出力が得られます。"
+"実際に実行すると次のような出力が得られます。"
 
 #: ../../intro/tutorial.rst:146
 msgid ""
@@ -215,7 +215,7 @@ msgid ""
 msgstr ""
 "カレントディレクトリのファイルをチェックしてみてください。"
 " ``parse`` メソッドにより *quotes-1.html* と *quotes-2.html* の"
-"2つの新しいファイルが作成されていることに注意してください。"
+"2つの新しいファイルが作成されていることに気がつくでしょう。"
 
 #: ../../intro/tutorial.rst:150
 msgid ""
@@ -240,7 +240,7 @@ msgstr ""
 "Scrapyは、Spiderの ``start_requests`` メソッドによって返された"
 " :class:`scrapy.Request <scrapy.http.Request>` オブジェクトをスケジュールします。"
 "それぞれのリクエストに対して応答を受け取ると、 :class:`~scrapy.http.Response` オブジェクトをインスタンス化し、"
-"それを引数として ``parse`` メソッドに関連付けられたコールバックメソッドを呼び出します。"
+"それを引数としてリクエストに関連付けられたコールバックメソッド（ここでは ``parse`` メソッド）を呼び出します。"
 
 #: ../../intro/tutorial.rst:165
 msgid "A shortcut to the start_requests method"
@@ -284,7 +284,7 @@ msgid ""
 "The best way to learn how to extract data with Scrapy is trying selectors"
 " using the shell :ref:`Scrapy shell <topics-shell>`. Run::"
 msgstr ""
-"Scrapyでデータを抽出するには、 :ref:`Scrapy shell <topics-shell>` を使ってセレクタを試してみるのが最良の方法です。"
+"Scrapyのデータを抽出方法を学ぶには、 :ref:`Scrapy shell <topics-shell>` を使ってセレクタを試してみるのが最良の方法です。"
 "次を実行してみてください。"
 
 #: ../../intro/tutorial.rst:206
@@ -319,7 +319,7 @@ msgid ""
 "elements and allow you to run further queries to fine-grain the selection"
 " or extract the data."
 msgstr ""
-"``response.css('title')`` を実行すると、XML/HTML要素を囲む :class:`~scrapy.selector.Selector` "
+"``response.css('title')`` を実行すると、XML/HTML要素をラップする :class:`~scrapy.selector.Selector` "
 "オブジェクトのリストを表す :class:`~scrapy.selector.SelectorList` というリストに似たオブジェクトが返されて、"
 "さらに細かく選択や抽出を行うためのクエリを実行できます。"
 
@@ -659,7 +659,7 @@ msgid ""
 msgstr ""
 "``parse()`` メソッドはデータを抽出した後、次ページへのリンクを探し、"
 " :meth:`~scrapy.http.Response.urljoin` メソッドを使用して絶対URLを作成し（リンクは相対URLであるため）、"
-"コールバックを登録した次のページへの新しいリクエストを生成し、"
+"コールバックを登録した次のページへの新しいリクエストをyieldし、"
 "それを繰り返してすべてのページをクロールします。"
 
 #: ../../intro/tutorial.rst:544
@@ -670,7 +670,7 @@ msgid ""
 "request finishes."
 msgstr ""
 "ここにリンクをたどるScrapyのメカニズムを見ることができます。"
-"コールバックメソッドのリクエストを生成(yield)すると、"
+"コールバックメソッドのリクエストをyieldすると、"
 "Scrapyはそのリクエストを送信するようスケジュールし、"
 "リクエストが終了したときに実行されるコールバックメソッドを登録します。"
 
@@ -712,7 +712,7 @@ msgid ""
 msgstr ""
 "scrapy.Requestとは異なり、 ``response.follow`` は相対URLをサポートしているため、urljoinを呼び出す必要はありません。"
 " ``response.follow`` は単にRequestインスタンスを返すことに注意してください。"
-"Requestを発行(yield)する必要があります。"
+"Requestをyieldする必要があります。"
 
 #: ../../intro/tutorial.rst:590
 msgid ""
@@ -769,8 +769,8 @@ msgid ""
 "Here we're passing callbacks to ``response.follow`` as positional "
 "arguments to make the code shorter; it also works for ``scrapy.Request``."
 msgstr ""
-"ここではコードをより短くするために、 ``response.follow`` にコールバックを渡しています。"
-"これはまた ``scrapy.Request`` として働きます。"
+"ここではコードをより短くするために、 ``response.follow`` に位置引数としてコールバックを渡しています。"
+"この方法でも ``scrapy.Request`` は動作します。"
 
 #: ../../intro/tutorial.rst:649
 msgid ""
@@ -779,7 +779,7 @@ msgid ""
 "author data."
 msgstr ""
 "``parse_author`` コールバックは、CSSクエリからデータを抽出してクリーンアップするヘルパー関数を定義し、"
-"著者データをPythonのdictで生成(yield)します。"
+"著者データをPythonのdictにしてyieldします。"
 
 #: ../../intro/tutorial.rst:652
 msgid ""
@@ -793,7 +793,7 @@ msgstr ""
 "このSpiderが示すもう1つの面白い点として、同じ著者の引用がたくさんあっても、同じ著者ページを複数回訪問する心配がありません。"
 "デフォルトでScrapyは重複したリクエストをすでに訪問したURLとしてフィルタリングします。"
 "これによりプログラミングミスのためにサーバーに過度の負荷がかかるという問題を回避します。"
-" :setting:`DUPEFILTER_CLASS` の設定で変更できます。"
+"この動作は、 :setting:`DUPEFILTER_CLASS` の設定で変更できます。"
 
 #: ../../intro/tutorial.rst:659
 msgid ""
