@@ -171,7 +171,7 @@ msgid ""
 "``myproject``."
 msgstr ""
 "これにより、 ``project_dir`` ディレクトリの下にScrapyプロジェクトが作成されます。"
-" ``project_dir`` を指定しなければ、 ``project_dir`` は ``myproject`` と同じになります。"
+" ``project_dir`` を指定しなければ、 ``project_dir`` は ``myproject`` と指定した場合と同じになります。"
 
 #: ../../topics/commands.rst:112
 msgid "Next, you go inside the new project directory::"
@@ -222,7 +222,7 @@ msgid ""
 msgstr ""
 "また、いくつかのコマンドは、プロジェクト内から実行するときに、少し違った動作をすることがあります。"
 "たとえば、フェッチされたURLが特定のSpiderに関連付けられている場合、"
-"fetchコマンドはspider-overriddenビヘイビア（ユーザーエージェントを上書きする ``user_agent`` 属性など）を使用します。"
+"fetchコマンドはSpiderの属性でデフォルトの属性を上書きします（例えば、ユーザーエージェントを上書きする ``user_agent`` 属性など）。"
 " ``fetch`` コマンドは、Spiderがどのようにページをダウンロードしているかを調べるために使用されるため、これは意図的なものです。"
 
 #: ../../topics/commands.rst:143
