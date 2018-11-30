@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../../topics/items.rst:5
 msgid "Items"
-msgstr ""
+msgstr "Item"
 
 #: ../../topics/items.rst:10
 msgid ""
@@ -29,6 +29,11 @@ msgid ""
 "structure: it is easy to make a typo in a field name or return "
 "inconsistent data, especially in a larger project with many spiders."
 msgstr ""
+"スクレイピングの主な目的は、構造化されていないソース（通常はWebページ）から構造化されたデータを抽出することです。"
+"ScrapyのSpiderは、抽出されたデータをPythonのdictとして返すことができます。"
+"便利で手軽なのですが、Pythonのdictでは構造化が不十分です。"
+"特に、多くのSpiderを持つ大規模なプロジェクトでは、"
+"簡単にフィールド名をtypoしたり、矛盾したデータを返してしまいます。"
 
 #: ../../topics/items.rst:16
 msgid ""
@@ -37,6 +42,9 @@ msgid ""
 "scraped data. They provide a `dictionary-like`_ API with a convenient "
 "syntax for declaring their available fields."
 msgstr ""
+"共通の出力データ形式を定義するために、Scrapyは :class:`Item` クラスを提供します。"
+" :class:`Item` オブジェクトは、抽出されたデータを収集するためのシンプルなコンテナです。"
+"利用可能なフィールドを宣言するための便利な構文を備えた `dictライク`_ なAPIを提供します。"
 
 #: ../../topics/items.rst:21
 msgid ""
@@ -46,16 +54,23 @@ msgid ""
 ":mod:`trackref` tracks Item instances to help find memory leaks (see :ref"
 ":`topics-leaks-trackrefs`), etc."
 msgstr ""
+"さまざまなScrapyコンポーネントがItemが提供する情報を使用します。"
+"たとえば、エクスポーターは宣言されたフィールドを参照してエクスポートする列を調べ、"
+"シリアライズはItemフィールドのメタデータを利用してカスタマイズできます。"
+" :mod:`trackref` はメモリのリークを見つけるための項目インスタンスを追跡します"
+"（ :ref:`topics-leaks-trackrefs` 参照）。"
 
 #: ../../topics/items.rst:32
 msgid "Declaring Items"
-msgstr ""
+msgstr "Itemの宣言"
 
 #: ../../topics/items.rst:34
 msgid ""
 "Items are declared using a simple class definition syntax and "
 ":class:`Field` objects. Here is an example::"
 msgstr ""
+"Itemはシンプルなクラス定義と :class:`Field` オブジェクトを使用して宣言されます。"
+"次に例を示します。"
 
 #: ../../topics/items.rst:45
 msgid ""
@@ -63,10 +78,12 @@ msgid ""
 "similar to `Django Models`_, except that Scrapy Items are much simpler as"
 " there is no concept of different field types."
 msgstr ""
+"`Django`_ に精通している人は、Itemが `Django Models`_ と同じように宣言されていることに気づくでしょう。"
+"ただScrapyのItemsは異なるフィールド型の概念がないので、それよりはるかに簡単です。"
 
 #: ../../topics/items.rst:55
 msgid "Item Fields"
-msgstr ""
+msgstr "Itemフィールド"
 
 #: ../../topics/items.rst:57
 msgid ""
@@ -74,6 +91,8 @@ msgid ""
 "example, the serializer function for the ``last_updated`` field "
 "illustrated in the example above."
 msgstr ""
+":class:`Field` オブジェクトは、各フィールドのメタデータを指定するために使用されます。"
+"たとえば、上記の例の ``last_updated`` フィールドのserializer関数がそれにあたります。"
 
 #: ../../topics/items.rst:61
 msgid ""
@@ -89,6 +108,15 @@ msgid ""
 " behaviour. You must refer to their documentation to see which metadata "
 "keys are used by each component."
 msgstr ""
+"各フィールドには任意の種類のメタデータを指定できます。"
+" :class:`Field` オブジェクトが受け入れる値に制限はありません。"
+"同じ理由から、使用可能なすべてのメタデータキーの参照リストはありません。"
+" :class:`Field` オブジェクトで定義された各キーは、別のコンポーネントによって使用され、"
+"それらのコンポーネントだけがそれを知ることができます。また、自分のニーズに合わせて、"
+"プロジェクト内の他の :class:`Field` キーを定義して使用することもできます。"
+" :class:`Field` オブジェクトの主な目的は、すべてのフィールドのメタデータを一ヶ所で定義する方法を提供することです。"
+"通常、その動作が各フィールドに依存するコンポーネントは、特定のフィールドキーを使用してその動作を構成します。"
+"各コンポーネントでどのメタデータキーが使用されているかについては、ドキュメントを参照する必要があります。"
 
 #: ../../topics/items.rst:72
 msgid ""
@@ -96,10 +124,13 @@ msgid ""
 "the item do not stay assigned as class attributes. Instead, they can be "
 "accessed through the :attr:`Item.fields` attribute."
 msgstr ""
+"項目を宣言するために使用される :class:`Field` オブジェクトは、"
+"クラスの属性として割り当てられたままではないことに注意してください。"
+"代わりに、 :attr:`Item.fields` 属性を使用してアクセスできます。"
 
 #: ../../topics/items.rst:77
 msgid "Working with Items"
-msgstr ""
+msgstr "Itemの操作"
 
 #: ../../topics/items.rst:79
 msgid ""
@@ -107,82 +138,92 @@ msgid ""
 "``Product`` item :ref:`declared above  <topics-items-declaring>`. You "
 "will notice the API is very similar to the `dict API`_."
 msgstr ""
+":ref:`上記で宣言された <topics-items-declaring>` ``Product`` Itemを使用した"
+"タスクの例をいくつか示します。APIは `dict API`_ と非常によく似ています。"
 
 #: ../../topics/items.rst:84
 msgid "Creating items"
-msgstr ""
+msgstr "Itemの作成"
 
 #: ../../topics/items.rst:93
 msgid "Getting field values"
-msgstr ""
+msgstr "フィールド値の取得"
 
 #: ../../topics/items.rst:134
 msgid "Setting field values"
-msgstr ""
+msgstr "フィールド値の設定"
 
 #: ../../topics/items.rst:148
 msgid "Accessing all populated values"
-msgstr ""
+msgstr "すべての設定された値にアクセスする"
 
 #: ../../topics/items.rst:150
 msgid "To access all populated values, just use the typical `dict API`_::"
-msgstr ""
+msgstr "すべての設定された値には `dict API`_ 的にアクセスできます。"
 
 #: ../../topics/items.rst:159
 msgid "Other common tasks"
-msgstr ""
+msgstr "その他の一般的なタスク"
 
 #: ../../topics/items.rst:161
 msgid "Copying items::"
-msgstr ""
+msgstr "Itemのコピー"
 
 #: ../../topics/items.rst:171
 msgid "Creating dicts from items::"
-msgstr ""
+msgstr "Itemからdictを作成する"
 
 #: ../../topics/items.rst:176
 msgid "Creating items from dicts::"
-msgstr ""
+msgstr "dictからItemを作成する"
 
 #: ../../topics/items.rst:187
 msgid "Extending Items"
-msgstr ""
+msgstr "Itemの拡張"
 
 #: ../../topics/items.rst:189
 msgid ""
 "You can extend Items (to add more fields or to change some metadata for "
 "some fields) by declaring a subclass of your original Item."
 msgstr ""
+"元のItemのサブクラスを宣言することで、フィールドを追加したり、"
+"一部のフィールドのメタデータを変更したりなど、Itemの拡張ができます。"
 
 #: ../../topics/items.rst:192
 msgid "For example::"
-msgstr ""
+msgstr "例:"
 
 #: ../../topics/items.rst:198
 msgid ""
 "You can also extend field metadata by using the previous field metadata "
 "and appending more values, or changing existing values, like this::"
 msgstr ""
+"次のように、前のフィールドのメタデータを使用してさらに値を追加したり、"
+"既存の値を変更したりすることで、フィールドのメタデータを拡張することもできます。"
 
 #: ../../topics/items.rst:204
 msgid ""
 "That adds (or replaces) the ``serializer`` metadata key for the ``name`` "
 "field, keeping all the previously existing metadata values."
 msgstr ""
+"これにより、 ``name`` フィールドの ``serializer`` メタデータキーが追加（または置換）され、"
+"以前に存在したすべてのメタデータ値が保持されます。"
 
 #: ../../topics/items.rst:208
 msgid "Item objects"
-msgstr ""
+msgstr "Itemオブジェクト"
 
 #: ../../topics/items.rst:212
 msgid "Return a new Item optionally initialized from the given argument."
-msgstr ""
+msgstr "指定された引数から初期化された新しいItemを返します。"
 
 #: ../../topics/items.rst:214
 msgid ""
 "Items replicate the standard `dict API`_, including its constructor. The "
 "only additional attribute provided by Items is:"
 msgstr ""
+"Itemは、コンストラクタを含む標準の `dict API`_ を複製します。"
+"Itemが独自に提供する唯一の追加属性は次のとおりです。"
 
 #: ../../topics/items.rst:219
 msgid ""
@@ -191,10 +232,13 @@ msgid ""
 ":class:`Field` objects used in the :ref:`Item declaration <topics-items-"
 "declaring>`."
 msgstr ""
+"設定された項目だけでなく、このItemの *宣言されたすべてのフィールド* を含む辞書。"
+"キーはフィールド名であり、値は :ref:`Itemの宣言 <topics-items-declaring>` で使用される"
+" :class:`Field` オブジェクトです。"
 
 #: ../../topics/items.rst:227
 msgid "Field objects"
-msgstr ""
+msgstr "Fieldオブジェクト"
 
 #: ../../topics/items.rst:231
 msgid ""
@@ -204,4 +248,7 @@ msgid ""
 "class is used to support the :ref:`item declaration syntax <topics-items-"
 "declaring>` based on class attributes."
 msgstr ""
-
+":class:`Field` クラスは、組み込みの `dict`_ クラスへの単なるエイリアスであり、余分な機能や属性を提供しません。"
+"言い換えれば、 :class:`Field` オブジェクトはPythonのdictです。"
+"別のクラスを使用して、クラス属性に基づいて :ref:`Itemの宣言構文 <topics-items-declaring>` "
+"をサポートします。"
