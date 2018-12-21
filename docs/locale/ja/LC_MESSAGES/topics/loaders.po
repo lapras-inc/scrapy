@@ -325,7 +325,8 @@ msgid ""
 " specify the input and output processors to use: in the :ref:`Item Field "
 "<topics-items-fields>` metadata. Here is an example::"
 msgstr ""
-"前のセクションで見たように、入出力プロセッサはItemローダーの定義で宣言することが一般的です。"
+"前のセクションで見たように、入出力プロセッサはItemローダーの定義で宣言することができ、"
+"このように入力プロセッサを宣言することは非常に一般的です。"
 "しかしもう1つ、 :ref:`Itemフィールド <topics-items-fields>` メタデータに"
 "使用する入力プロセッサおよび出力プロセッサを指定することもできます。次に例を示します。"
 
@@ -400,14 +401,14 @@ msgid ""
 "By modifying the currently active Item Loader context "
 "(:attr:`~ItemLoader.context` attribute)::"
 msgstr ""
-"現在アクティブなItemローダーコンテキスト（ :attr:`~ItemLoader.context` 属性）の変更。"
+"現在アクティブなItemローダーコンテキスト（ :attr:`~ItemLoader.context` 属性）の変更時。"
 
 #: ../../topics/loaders.rst:267
 msgid ""
 "On Item Loader instantiation (the keyword arguments of Item Loader "
 "constructor are stored in the Item Loader context)::"
 msgstr ""
-"Itemローダーをインスタンス化したとき"
+"Itemローダーのインスタンス化時"
 "（コンストラクタのキーワード引数がItemローダーコンテキストに格納されます）。"
 
 #: ../../topics/loaders.rst:272
