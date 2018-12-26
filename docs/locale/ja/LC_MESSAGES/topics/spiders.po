@@ -30,10 +30,12 @@ msgid ""
 " behaviour for crawling and parsing pages for a particular site (or, in "
 "some cases, a group of sites)."
 msgstr ""
+"Spiderは特定のWebサイト(あるいは複数のひとかたまりのWebサイト)を、どのように抽出するかを定義したクラスです。"
+"抽出方法にはクロール方法(どのようにリンクを辿るか)も含まれます。"
 
 #: ../../topics/spiders.rst:13
 msgid "For spiders, the scraping cycle goes through something like this:"
-msgstr ""
+msgstr "Spiderの抽出サイクルは以下の様なものです:"
 
 #: ../../topics/spiders.rst:15
 msgid ""
@@ -41,6 +43,8 @@ msgid ""
 " specify a callback function to be called with the response downloaded "
 "from those requests."
 msgstr ""
+"最初のURLを対象としたRequestsを生成し、それらのRequestsによってダウンロードされた"
+"Responseとともに特定のcallback関数が呼び出されます。"
 
 #: ../../topics/spiders.rst:19
 msgid ""
@@ -51,6 +55,9 @@ msgid ""
 ":attr:`~scrapy.spiders.Spider.parse` method as callback function for the "
 "Requests."
 msgstr ""
+"最初のrequestsは :meth:`~scrapy.spiders.Spider.start_requests` メソッド(デフォルト)によって取得されます。"
+"これは、:attr:`~scrapy.spiders.Spider.start_urls` で指定されたURLと :attr:`~scrapy.spiders.Spider.parse` を"
+"コールバック関数に指定して :class:`~scrapy.http.Request` を生成します。"
 
 #: ../../topics/spiders.rst:26
 msgid ""
@@ -61,6 +68,10 @@ msgid ""
 "then be downloaded by Scrapy and then their response handled by the "
 "specified callback."
 msgstr ""
+"コールバック関数では、レスポンス(Webページの) をパースし、抽出されたデータのdict、 :class:`~scrapy.item.Item` オブジェクト、"
+":class:`~scrapy.http.Request` オブジェクト、あるいはそれらのIterableなオブジェクトを戻します。"
+"それらのRequestもまたコールバック関数(おそらく同じもの)が指定されており、Scrapyによってダウンロードされたレスポンスを"
+"処理します。"
 
 #: ../../topics/spiders.rst:33
 msgid ""
@@ -68,6 +79,10 @@ msgid ""
 ":`topics-selectors` (but you can also use BeautifulSoup, lxml or whatever"
 " mechanism you prefer) and generate items with the parsed data."
 msgstr ""
+"コールバック関数では、ページのコンテンツをパースします。"
+"通常は :ref:`セレクタ <topics-selectors>` を使用し、"
+"(BeautifulSoupやlxmlなどの他のパーサを利用することも可能です)"
+"パースされたデータを含んだItemを生成しします。"
 
 #: ../../topics/spiders.rst:37
 msgid ""
@@ -75,6 +90,9 @@ msgid ""
 "to a database (in some :ref:`Item Pipeline <topics-item-pipeline>`) or "
 "written to a file using :ref:`topics-feed-exports`."
 msgstr ""
+"最後は、spiderから戻されたitemは一般的には、データベースに永続化"
+"(詳しくは :ref:`Item Pipeline <topics-item-pipeline>`)されるか、"
+":ref:`topics-feed-exports`を使用してファイルに書き出されます。"
 
 #: ../../topics/spiders.rst:41
 msgid ""
@@ -82,6 +100,9 @@ msgid ""
 "there are different kinds of default spiders bundled into Scrapy for "
 "different purposes. We will talk about those types here."
 msgstr ""
+"このサイクルは(多かれ少なかれ)どのようなSpiderにも適用されます。"
+"様々な目的のための様々な種類のSpiderがデフォルトでScrapyにはバンドルされています。"
+"それらのSpiderについて説明します。"
 
 #: ../../topics/spiders.rst:51
 msgid "scrapy.Spider"
@@ -97,6 +118,12 @@ msgid ""
 "attribute and calls the spider's method ``parse`` for each of the "
 "resulting responses."
 msgstr ""
+"これは最もシンプルなSpiderであり、他のすべてのSpiderが継承すべきです。"
+"(Scrapyにバンドルされているものだけではなく、貴方が自ら作成したSpiderにも該当します)"
+"これは特別な機能は提供しません。 提供されるのはSpiderの :attr:`start_urls` 属性をもとにした"
+"Requestを送るためのデフォルトの :meth:`start_requests` メソッドの実装と"
+"Responseごとに呼び出されるSpiderの ``parse`` メソッドの実装です。"
+
 
 #: ../../topics/spiders.rst:64
 msgid ""
@@ -106,6 +133,9 @@ msgid ""
 "of the same spider. This is the most important spider attribute and it's "
 "required."
 msgstr ""
+"Spiderの名前を定義します。このSpiderの名前はScrapyによってどこにSpiderが位置しているかの識別に使われます。"
+"そのため一意である必要がありますが、同じSpiderから複数のインスタンスを生成することを妨げるものではありません。"
+"この属性はSpiderにおいて最も重要であり、必須です。"
 
 #: ../../topics/spiders.rst:70
 msgid ""
@@ -113,10 +143,12 @@ msgid ""
 "spider after the domain, with or without the `TLD`_. So, for example, a "
 "spider that crawls ``mywebsite.com`` would often be called ``mywebsite``."
 msgstr ""
+"単一のドメインを扱うSpiderでは、`TLD`_ の有無にかかわらずSpiderの名前にドメイン名をつけるのが一般的な手法です。"
+"例えば、 ``mywebsite.com`` をクロールするSpiderの名前は多くの場合 ``mywebsite`` とされます。"
 
 #: ../../topics/spiders.rst:75
 msgid "In Python 2 this must be ASCII only."
-msgstr ""
+msgstr "Python 2では、ASCIIのみでなければなりません。"
 
 #: ../../topics/spiders.rst:79
 msgid ""
@@ -125,12 +157,19 @@ msgid ""
 "specified in this list (or their subdomains) won't be followed if "
 ":class:`~scrapy.spidermiddlewares.offsite.OffsiteMiddleware` is enabled."
 msgstr ""
+"Spiderにクロールを許可するドメイン名のオプショナルなリストです。"
+"リクエストされたURLがそれらのリストに含まれるドメイン(あるいばサブドメイン)に所属していなかった場合 "
+":class:`~scrapy.spidermiddlewares.offsite.OffsiteMiddleware` が有効化されていない限りは"
+"追跡されません。"
+
 
 #: ../../topics/spiders.rst:84
 msgid ""
 "Let's say your target url is ``https://www.example.com/1.html``, then add"
 " ``'example.com'`` to the list."
 msgstr ""
+"例えば、対象のURLが ``https://www.example.com/1.html`` である場合、"
+" ``'example.com'`` をリストに追加します。"
 
 #: ../../topics/spiders.rst:89
 msgid ""
@@ -139,6 +178,9 @@ msgid ""
 "those listed here. The subsequent :class:`~scrapy.http.Request` will be "
 "generated successively from data contained in the start URLs."
 msgstr ""
+"URLを明示的にしてしていなかった時に、Spiderがクロールを始めるURLのリストです。"
+"従って最初にダウンロードされるページは、これにリストされたページになります。"
+"後続の :class:`~scrapy.http.Request` は ``start_urls`` に含まれるデータから順番に生成されます。"
 
 #: ../../topics/spiders.rst:96
 msgid ""
@@ -146,10 +188,12 @@ msgid ""
 "configuration when running this spider. It must be defined as a class "
 "attribute since the settings are updated before instantiation."
 msgstr ""
+"設定値を含んだディクショナリであり、Spiderが実行される際にプロジェクト単位で指定された"
+"設定を上書きます。インスタンス化される前に設定を更新するため、クラス属性として定義する必要があります。"
 
 #: ../../topics/spiders.rst:100
 msgid "For a list of available built-in settings see: :ref:`topics-settings-ref`."
-msgstr ""
+msgstr "利用可能なビルトインの設定のリストは :ref:`ビルトイン設定リファレンス <topics-settings-ref>` を参照してください。"
 
 #: ../../topics/spiders.rst:105
 msgid ""
@@ -158,6 +202,8 @@ msgid ""
 ":class:`~scrapy.crawler.Crawler` object to which this spider instance is "
 "bound."
 msgstr ""
+"この属性はクラスの初期化後に、 :meth:`from_crawler` クラスメソッドによってセットされ"
+"このSpiderインスタンスがどの :class:`~scrapy.crawler.Crawler` オブジェクトにリンクされているかを持ちます。"
 
 #: ../../topics/spiders.rst:110
 msgid ""
@@ -165,6 +211,7 @@ msgid ""
 "entry access (such as extensions, middlewares, signals managers, etc). "
 "See :ref:`topics-api-crawler` to know more about them."
 msgstr ""
+"クローラはたくさんのコンポーネントをカプセル化しています。"
 
 #: ../../topics/spiders.rst:116
 msgid ""
@@ -172,6 +219,8 @@ msgid ""
 ":class:`~scrapy.settings.Settings` instance, see the :ref:`topics-"
 "settings` topic for a detailed introduction on this subject."
 msgstr ""
+"実行されているSpiderの設定です。これは :class:`~scrapy.settings.Settings` インスタンスです,"
+"詳しくは :ref:`topics-settings` を参照してください。"
 
 #: ../../topics/spiders.rst:122
 msgid ""
@@ -179,10 +228,14 @@ msgid ""
 "send log messages through it as described on :ref:`topics-logging-from-"
 "spiders`."
 msgstr ""
+"Spiderの  :attr:`name` でPythonのloggerが作成されます。ログメッセージの送信はこれを介して"
+"行うことができます。 詳しくは :ref:`topics-logging-from-spiders` を参照してください。"
+
 
 #: ../../topics/spiders.rst:128
 msgid "This is the class method used by Scrapy to create your spiders."
 msgstr ""
+"これはScrapyによってSpiderを作成するために用いられるクラスメソッドです。"
 
 #: ../../topics/spiders.rst:130
 msgid ""
@@ -190,6 +243,8 @@ msgid ""
 "implementation acts as a proxy to the :meth:`__init__` method, calling it"
 " with the given arguments `args` and named arguments `kwargs`."
 msgstr ""
+"このメソッドを直接オーバライドする必要はありません。デフォルトの実装は"
+" :meth:`__init__` に必要な引数 `args` と 名前付き引数 `kwagrs` を渡すProxyとして動作するためです。"
 
 #: ../../topics/spiders.rst:134
 msgid ""
@@ -197,22 +252,24 @@ msgid ""
 "attributes in the new instance so they can be accessed later inside the "
 "spider's code."
 msgstr ""
+"それでもなお、このメソッドは :attr:`crawler` と :attr:`settings` を"
+"新しいインスタンスに設定するため、Spiderのコード内でそれらの属性にアクセスすることができます。"
 
 #: ../../topics/spiders.rst
 msgid "Parameters"
-msgstr ""
+msgstr "パラメータ"
 
 #: ../../topics/spiders.rst:138
 msgid "crawler to which the spider will be bound"
-msgstr ""
+msgstr "Spiderに紐付けられているCrawler"
 
 #: ../../topics/spiders.rst:141
 msgid "arguments passed to the :meth:`__init__` method"
-msgstr ""
+msgstr " :meth:`__init__` に渡された引数"
 
 #: ../../topics/spiders.rst:144
 msgid "keyword arguments passed to the :meth:`__init__` method"
-msgstr ""
+msgstr " :meth:`__init__` に渡された名前付き引数"
 
 #: ../../topics/spiders.rst:149
 msgid ""
@@ -221,12 +278,17 @@ msgid ""
 "scraping. Scrapy calls it only once, so it is safe to implement "
 ":meth:`start_requests` as a generator."
 msgstr ""
+"このメソッドはSpiderがクロールするための最初のリクエストを含むiterableなインスタンスを戻さなければいけません。"
+"これはScrapyによってSpiderがクロールするために起動する際に呼び出されます。"
+"Scrapyはこれを一度だけ呼び出しすため、 :meth:`start_requests` をジェネレータとして安全に実装することができます。"
 
 #: ../../topics/spiders.rst:154
 msgid ""
 "The default implementation generates ``Request(url, dont_filter=True)`` "
 "for each url in :attr:`start_urls`."
 msgstr ""
+"デフォルトの実装では :attr:`start_urls` 内の各URLに対して ``Request(url, dont_filter=True)`` を"
+"生成します。"
 
 #: ../../topics/spiders.rst:157
 msgid ""
@@ -234,12 +296,16 @@ msgid ""
 "is the method to override. For example, if you need to start by logging "
 "in using a POST request, you could do::"
 msgstr ""
+"もし、ドメインのクロール開始のリクエストを変更したい場合は、このメソッドをオーバライドします。"
+"例えば、最初にPOSTリクエストでログインする必要がある場合は、以下のようにします。"
 
 #: ../../topics/spiders.rst:176
 msgid ""
 "This is the default callback used by Scrapy to process downloaded "
 "responses, when their requests don't specify a callback."
 msgstr ""
+"これはScrapyによってダウンロードされたレスポンスを処理するために、コールバックを指定しなかったリクエストでの"
+"デフォルトのコールバックです。"
 
 #: ../../topics/spiders.rst:179
 msgid ""
@@ -247,6 +313,9 @@ msgid ""
 "returning scraped data and/or more URLs to follow. Other Requests "
 "callbacks have the same requirements as the :class:`Spider` class."
 msgstr ""
+"``parse`` メソッドはレスポンスの処理と、抽出されたデータを戻します。また、さらに辿るべき"
+"URLを戻すこともあります。 他のリクエストのコールバックは :class:`Spider` と同じ要件を持ちます。"
+""
 
 #: ../../topics/spiders.rst:183
 msgid ""
@@ -254,10 +323,12 @@ msgid ""
 "iterable of :class:`~scrapy.http.Request` and/or dicts or "
 ":class:`~scrapy.item.Item` objects."
 msgstr ""
+"このメソッドは、他のリクエストのコールバックと同じように、 :class:`~scrapy.http.Request` のiterable、"
+"dict、 :class:`~scrapy.item.Item` オブジェクトのいずれかを戻さなければいけません。"
 
 #: ../../topics/spiders.rst:187
 msgid "the response to parse"
-msgstr ""
+msgstr "処理されるレスポンス"
 
 #: ../../topics/spiders.rst:192
 msgid ""
@@ -265,30 +336,36 @@ msgid ""
 "kept for backwards compatibility. For more information see :ref:`topics-"
 "logging-from-spiders`."
 msgstr ""
+"Spiderの :attr:`logger` を通じてログメッセージを送るための下位互換を保つために設けられたラッパーです。"
+"詳しくは :ref:`topics-logging-from-spiders` を確認してください。"
 
 #: ../../topics/spiders.rst:198
 msgid ""
 "Called when the spider closes. This method provides a shortcut to "
 "signals.connect() for the :signal:`spider_closed` signal."
 msgstr ""
+"スパイダーの終了時に呼ばれます。このメソッドは :signal:`spider_closed` シグナルを送るための"
+"signals.connect() のショートカットを提供します。"
 
 #: ../../topics/spiders.rst:201
 msgid "Let's see an example::"
-msgstr ""
+msgstr "例::"
 
 #: ../../topics/spiders.rst:218
 msgid "Return multiple Requests and items from a single callback::"
-msgstr ""
+msgstr "1つのコールバックで複数のRequestとItemを戻す場合::"
 
 #: ../../topics/spiders.rst:238
 msgid ""
 "Instead of :attr:`~.start_urls` you can use :meth:`~.start_requests` "
 "directly; to give data more structure you can use :ref:`topics-items`::"
 msgstr ""
+":attr:`~.start_urls` の代わりに  :meth:`~.start_requests`  を直接使い、またより構造化された"
+"データを戻すため  :ref:`topics-items` を使用する場合::"
 
 #: ../../topics/spiders.rst:263
 msgid "Spider arguments"
-msgstr ""
+msgstr "Spiderの引数"
 
 #: ../../topics/spiders.rst:265
 msgid ""
@@ -297,16 +374,23 @@ msgid ""
 " crawl to certain sections of the site, but they can be used to configure"
 " any functionality of the spider."
 msgstr ""
+"Spiderは挙動の変更をもたらすいくつかの引数を受け入れます。一般的な用途としては、クロールの開始URLや"
+"サイトの一部をクロールするためのセクション指定などです。しかし、それ以外の機能を構成するためにも"
+"使用できます。"
+
 
 #: ../../topics/spiders.rst:270
 msgid ""
 "Spider arguments are passed through the :command:`crawl` command using "
 "the ``-a`` option. For example::"
 msgstr ""
+"Spiderの引数は :command:`crawl` コマンドの ``-a`` オプションを通じて渡されます。"
+"例えば以下の様になります::"
+
 
 #: ../../topics/spiders.rst:275
 msgid "Spiders can access arguments in their `__init__` methods::"
-msgstr ""
+msgstr "Spiderに渡された引数は `__init__` メソッドでアクセスすることができます::"
 
 #: ../../topics/spiders.rst:287
 msgid ""
@@ -314,6 +398,8 @@ msgid ""
 "them to the spider as attributes. The above example can also be written "
 "as follows::"
 msgstr ""
+"デフォルトの`__init__` メソッドは如何なるSpiderの引数も受け取ることができ、それらは"
+"Spiderの属性にコピーされます。上記の例は、次のように書くこともできます。"
 
 #: ../../topics/spiders.rst:299
 msgid ""
@@ -327,6 +413,13 @@ msgid ""
 "`start_urls` string (a very common python pitfall) resulting in each "
 "character being seen as a separate url."
 msgstr ""
+"Spiderの引数は文字列のみが使用できることに注意してください。Spiderは引数をパースすることは"
+"ありません。 `start_urls` をコマンドラインからセットしようとする場合、ユーザ自身で"
+" `ast.literal_eval <https://docs.python.org/library/ast.html#ast.literal_eval>` や"
+"`json.loads <https://docs.python.org/library/json.html#json.loads>` 等を使用してListに"
+"パースし、属性としてセットする必要があります。"
+"そうしない場合、 `start_urls` に渡した文字列自体をiterableとして処理され(Pythonでよくある落とし穴)、1文字ごとにURLとして"
+"扱われてしまいます。"
 
 #: ../../topics/spiders.rst:311
 msgid ""
@@ -335,16 +428,23 @@ msgid ""
 " user agent used by "
 ":class:`~scrapy.downloadermiddlewares.useragent.UserAgentMiddleware`::"
 msgstr ""
+"有効なユースケースとしては、:class:`~scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware` を"
+"使用してHTTP認証のクレデンシャルをセットするものや、 :class:`~scrapy.downloadermiddlewares.useragent.UserAgentMiddleware`を"
+"使用してユーザーエージェントをセットするものがあります::"
+
 
 #: ../../topics/spiders.rst:318
 msgid ""
 "Spider arguments can also be passed through the Scrapyd ``schedule.json``"
 " API. See `Scrapyd documentation`_."
 msgstr ""
+"Spiderの引数はScrapydの ``schedule.json``  APIでも指定することができます。詳しくは"
+" `Scrapyd documentation`_ を参照してください。"
+
 
 #: ../../topics/spiders.rst:324
 msgid "Generic Spiders"
-msgstr ""
+msgstr "一般的なSpider"
 
 #: ../../topics/spiders.rst:326
 msgid ""
@@ -354,12 +454,19 @@ msgid ""
 "on a site based on certain rules, crawling from `Sitemaps`_, or parsing "
 "an XML/CSV feed."
 msgstr ""
+"Scrapyはいくつかの有用なSpiderを提供しています。ユーザはこれらのSpiderのサブクラスとして"
+"自身のSpiderを作成することができます。これらのSpiderの目的は、いくつかのクロールケースに合わせて"
+"有効な機能を提供することです。それは例えば、あるサイトのすべてのリンクについて、`Sitemaps`_ を元にしたり"
+"XML/CSV フィードをパースして特定のルールで辿ること等です。"
 
 #: ../../topics/spiders.rst:331
 msgid ""
 "For the examples used in the following spiders, we'll assume you have a "
 "project with a ``TestItem`` declared in a ``myproject.items`` module::"
 msgstr ""
+"以下の例で使用されるSpiderは、``myproject.items`` モジュールで制限された"
+"``TestItem``を持ったプロジェクト配下で作成されているものとします。"
+
 
 #: ../../topics/spiders.rst:345
 msgid "CrawlSpider"
@@ -374,12 +481,19 @@ msgid ""
 " it and override it as needed for more custom functionality, or just "
 "implement your own spider."
 msgstr ""
+"通常のウェブサイトをクロールする最も一般的なSpiderです。"
+"これは、いくつかのルールに従ってリンクをたどっていく便利なメカニズムを提供します。"
+"あなたの特定のウェブサイトやプロジェクトには最適ではないかもしれませんが、多くのケースでは"
+"このSpiderで十分ですので、より多くのカスタム機能のために必要に応じて上書きしたり、"
+"独自のスパイダーを実装することができます。"
+
 
 #: ../../topics/spiders.rst:355
 msgid ""
 "Apart from the attributes inherited from Spider (that you must specify), "
 "this class supports a new attribute:"
 msgstr ""
+"Spiderから継承した属性（指定する必要がある）を除いて、 このクラスは新しい属性をサポートします:"
 
 #: ../../topics/spiders.rst:360
 msgid ""
@@ -389,10 +503,13 @@ msgid ""
 "first one will be used, according to the order they're defined in this "
 "attribute."
 msgstr ""
+":class:`Rule` オブジェクトの1つ(あるいは複数)のリストです。それぞれの :class:`Rule` "
+"はサイトをクロールするための特定の動作を定義します。もし、あるリンクについて複数のルールが該当する場合"
+"この属性に定義した順に従った、最初の1つが使用されます。"
 
 #: ../../topics/spiders.rst:365
 msgid "This spider also exposes an overrideable method:"
-msgstr ""
+msgstr "このスパイダーは, オーバーライド可能なメソッドも公開しています:"
 
 #: ../../topics/spiders.rst:369
 msgid ""
@@ -401,6 +518,9 @@ msgid ""
 ":class:`~scrapy.item.Item` object, a :class:`~scrapy.http.Request` "
 "object, or an iterable containing any of them."
 msgstr ""
+"このメソッドは ``start_urls`` のレスポンスのパースのために呼び出されます。"
+"初期のレスポンスの解析を行い、 :class:`~scrapy.item.Item` オブジェクト、 :class:`~scrapy.http.Request` オブジェクト"
+"あるいはそれらを含んだiterableなデータのいずれかを戻す必要があります。"
 
 #: ../../topics/spiders.rst:375
 msgid "Crawling rules"
@@ -411,6 +531,8 @@ msgid ""
 "``link_extractor`` is a :ref:`Link Extractor <topics-link-extractors>` "
 "object which defines how links will be extracted from each crawled page."
 msgstr ""
+"``link_extractor`` はクロールされたそれぞれのページからどのようにリンクを抽出するかを定義した"
+" :ref:`Link Extractor <topics-link-extractors>`  オブジェクトです。"
 
 #: ../../topics/spiders.rst:382
 msgid ""
@@ -421,6 +543,10 @@ msgid ""
 ":class:`~scrapy.item.Item` and/or :class:`~scrapy.http.Request` objects "
 "(or any subclass of them)."
 msgstr ""
+"``callback`` はlink_extractorによって抽出された各リンク毎に呼び出される、呼び出し可能オブジェクトか"
+"文字列(この場合, その名前を持つSpiderのメソッドが使用されます)です。"
+"このコールバックは第一引数にレスポンスを受け取り、 :class:`~scrapy.item.Item` および/または "
+":class:`~scrapy.http.Request` オブジェクト(あるいはそれらのサブクラス)のリストを戻す必要があります。"
 
 #: ../../topics/spiders.rst:388
 msgid ""
@@ -428,13 +554,16 @@ msgid ""
 " the :class:`CrawlSpider` uses the ``parse`` method itself to implement "
 "its logic. So if you override the ``parse`` method, the crawl spider will"
 " no longer work."
-msgstr ""
+msgstr "スパイダーのクロールのルールを作成する際は、 ``parse`` メソッドを使用しないように注意します。"
+" :class:`CrawlSpider` は ``parse`` メソッドを自身のロジックに組み込んでいるためです。"
+"そのため、もし ``parse`` メソッドをオーバーライドしてしまうと、CrawlSpiderは動作しなくなります。"
 
 #: ../../topics/spiders.rst:393
 msgid ""
 "``cb_kwargs`` is a dict containing the keyword arguments to be passed to "
 "the callback function."
 msgstr ""
+"``cb_kwargs`` はコールバック関数に渡される名前付き引数を含んだdictです。"
 
 #: ../../topics/spiders.rst:396
 msgid ""
@@ -442,6 +571,8 @@ msgid ""
 "each response extracted with this rule. If ``callback`` is None "
 "``follow`` defaults to ``True``, otherwise it defaults to ``False``."
 msgstr ""
+"``follow`` は, このルールで抽出された各レスポンスからリンクをたどるかどうかを指定する bool 値です. "
+"もし ``callback`` がNoneの場合、 ``follow`` はデフォルトで ``True``になり、それ以外では ``False`` になります。"
 
 #: ../../topics/spiders.rst:400
 msgid ""
@@ -450,6 +581,9 @@ msgid ""
 "each list of links extracted from each response using the specified "
 "``link_extractor``. This is mainly used for filtering purposes."
 msgstr ""
+"``process_links`` はlink_extractorによって抽出された各リンク毎に呼び出される、呼び出し可能オブジェクトか"
+"文字列(この場合, その名前を持つSpiderのメソッドが使用されます)です。主な目的はフィルタリングです。"
+""
 
 #: ../../topics/spiders.rst:405
 msgid ""
@@ -458,14 +592,18 @@ msgid ""
 "with every request extracted by this rule, and must return a request or "
 "None (to filter out the request)."
 msgstr ""
+"``process_request`` は ruleによって抽出されたすべてのリクエストに対して呼び出される、"
+"呼び出し可能オブジェクトか文字列(この場合, その名前を持つSpiderのメソッドが使用されます)です。"
+"これはrequestかNone(フィルタされた事を示す)を戻す必要があります。"
+
 
 #: ../../topics/spiders.rst:411
 msgid "CrawlSpider example"
-msgstr ""
+msgstr "CrawlSpiderの例"
 
 #: ../../topics/spiders.rst:413
 msgid "Let's now take a look at an example CrawlSpider with rules::"
-msgstr ""
+msgstr "ルールを使用したCrawlSpiderの例を見てみましょう::"
 
 #: ../../topics/spiders.rst:442
 msgid ""
@@ -475,6 +613,9 @@ msgid ""
 "extracted from the HTML using XPath, and an :class:`~scrapy.item.Item` "
 "will be filled with it."
 msgstr ""
+"このSpiderはexample.comのホームページをクロールし、カテゴリのリンクとアイテムのリンクを収集し、"
+"後者を``parse_item`` メソッドによって解析します。各アイテムのレスポンスでは、XPathを使ってHTMLから"
+"データを抽出し、 :class:`~scrapy.item.Item` にデータを埋めます。"
 
 #: ../../topics/spiders.rst:448
 msgid "XMLFeedSpider"
@@ -490,20 +631,28 @@ msgid ""
 "using ``html`` as the iterator may be useful when parsing XML with bad "
 "markup."
 msgstr ""
+"XMLFeedSpiderはXMLフィードの特定のノード名について繰り返し解析するように"
+"設計されています。イテレータは ``iternodes`` , ``xml``, そして ``html`` から選ぶことができます。"
+"パフォーマンス的な観点から推奨は ``iternodes`` を使用することです。何故なら、 ``xml`` や ``html`` の"
+"イテレータは解析のため、一度に完全なDOM構造を生成するためです。しかし、 ``html`` は不完全なマークアップで"
+"作成されたXMLを解析する際には有用です。"
+
 
 #: ../../topics/spiders.rst:459
 msgid ""
 "To set the iterator and the tag name, you must define the following class"
 " attributes:"
 msgstr ""
+"イテレータとタグ名を設定するには、次のクラス属性を定義する必要があります:"
+
 
 #: ../../topics/spiders.rst:464
 msgid "A string which defines the iterator to use. It can be either:"
-msgstr ""
+msgstr "使用するイテレータを定義する文字列です。以下の値が指定できます。"
 
 #: ../../topics/spiders.rst:466
 msgid "``'iternodes'`` - a fast iterator based on regular expressions"
-msgstr ""
+msgstr "``'iternodes'`` - 正規表現に基づいた高速なイテレータ"
 
 #: ../../topics/spiders.rst:468
 msgid ""
@@ -511,6 +660,9 @@ msgid ""
 "Keep in mind this uses DOM parsing and must load all DOM in memory which "
 "could be a problem for big feeds"
 msgstr ""
+"``'html'`` - :class:`~scrapy.selector.Selector` を使用したイテレータ"
+"これはDOMの解析のためメモリ上にすべてのDOMをロードする必要があり、大きなフィードではそれが"
+"問題につながることに注意します。"
 
 #: ../../topics/spiders.rst:472
 msgid ""
@@ -518,14 +670,17 @@ msgid ""
 "Keep in mind this uses DOM parsing and must load all DOM in memory which "
 "could be a problem for big feeds"
 msgstr ""
+"``'xml'`` - :class:`~scrapy.selector.Selector` を使用したイテレータ"
+"これはDOMの解析のためメモリ上にすべてのDOMをロードする必要があり、大きなフィードではそれが"
+"問題につながることに注意します。"
 
 #: ../../topics/spiders.rst:476
 msgid "It defaults to: ``'iternodes'``."
-msgstr ""
+msgstr "デフォルト: ``'iternodes'``"
 
 #: ../../topics/spiders.rst:480
 msgid "A string with the name of the node (or element) to iterate in. Example::"
-msgstr ""
+msgstr "繰り返し対象であるノード名(あるいは要素)を示す文字列です。例::"
 
 #: ../../topics/spiders.rst:486
 msgid ""
@@ -534,22 +689,29 @@ msgid ""
 "and ``uri`` will be used to automatically register namespaces using the "
 ":meth:`~scrapy.selector.Selector.register_namespace` method."
 msgstr ""
+"このスパイダーで処理される、文書で利用可能な名前空間を定義する"
+"``(prefix, uri)`` のタプルのリストです。 ``prefix`` と ``url`` は"
+":meth:`~scrapy.selector.Selector.register_namespace` メソッドを使用して名前空間を"
+"自動的に登録するために使用されます。"
+
 
 #: ../../topics/spiders.rst:492
 msgid ""
 "You can then specify nodes with namespaces in the :attr:`itertag` "
 "attribute."
 msgstr ""
+":attr:`itertag` 属性に名前空間をもったノードを指定することができます。"
 
 #: ../../topics/spiders.rst:495
 msgid "Example::"
-msgstr ""
+msgstr "例::"
 
 #: ../../topics/spiders.rst:503
 msgid ""
 "Apart from these new attributes, this spider has the following "
 "overrideable methods too:"
 msgstr ""
+"これらの新しい属性とは別に、このスパイダーは次のオーバーライド可能なメソッドも持っています:"
 
 #: ../../topics/spiders.rst:508
 msgid ""
@@ -559,6 +721,10 @@ msgid ""
 "response and also returns a response (it could be the same or another "
 "one)."
 msgstr ""
+"SpiderミドルウェアからのレスポンスがSpiderによって解析される前に受け取るメソッドです。"
+"解析の前にレスポンスボディを変更するために利用できます。このメソッドはレスポンスを受け取り"
+"レスポンスを戻します。(同じものかあるいは別のものです)"
+
 
 #: ../../topics/spiders.rst:515
 msgid ""
@@ -570,6 +736,11 @@ msgid ""
 ":class:`~scrapy.http.Request` object, or an iterable containing any of "
 "them."
 msgstr ""
+"指定されたタグ名(``itertag``)と一致するノードに対して呼び出されるメソッドです。"
+"レスポンスと :class:`~scrapy.selector.Selector` を各ノードごとに受け取ります。"
+"このメソッドをオーバーライドすることは必須です。そうしない場合、Spiderは動作しません。"
+"このメソッドは :class:`~scrapy.item.Item` か :class:`~scrapy.http.Request`"
+"あるいは、それらを含んだiterableを戻す必要があります。"
 
 #: ../../topics/spiders.rst:525
 msgid ""
@@ -580,14 +751,18 @@ msgid ""
 "originated those results. It must return a list of results (Items or "
 "Requests)."
 msgstr ""
+"Spiderによって戻された各結果(ItemかRequest)に対して呼び出されるメソッドであり、"
+"結果をフレームワークのコアに戻す際に必要な最後の処理を行うことを目的としています。それは例えば、"
+"アイテムのID設定等です。このメソッドは結果のリストとそれらの結果の元になったレスポンスを受け取ります。"
+"これは結果(ItemかRequest)のリストを戻す必要があります。"
 
 #: ../../topics/spiders.rst:533
 msgid "XMLFeedSpider example"
-msgstr ""
+msgstr "XMLFeedSpiderの例"
 
 #: ../../topics/spiders.rst:535
 msgid "These spiders are pretty easy to use, let's have a look at one example::"
-msgstr ""
+msgstr "これらのSpiderは簡単に利用できます。まずは例を見てみましょう::"
 
 #: ../../topics/spiders.rst:556
 msgid ""
@@ -596,6 +771,9 @@ msgid ""
 " ``item`` tags, prints them out, and stores some random data in an "
 ":class:`~scrapy.item.Item`."
 msgstr ""
+"上述の基本的な例は、 ``start_urls``によって指定されたフィードからダウンロードし"
+"それぞれの ``item`` タグを繰り返し処理し、出力し、ランダムなデータを :class:`~scrapy.item.Item` に"
+"格納するSpiderです。"
 
 #: ../../topics/spiders.rst:561
 msgid "CSVFeedSpider"
@@ -607,22 +785,27 @@ msgid ""
 " over rows, instead of nodes. The method that gets called in each "
 "iteration is :meth:`parse_row`."
 msgstr ""
+"このSpiderは、ノードの代わりに行を繰り返し処理する点を除きXMLFeedSpiderとよく似ています。"
+"各繰り返しに対して呼び出されるメソッドは :meth:`parse_row` です。"
 
 #: ../../topics/spiders.rst:571
 msgid ""
 "A string with the separator character for each field in the CSV file "
 "Defaults to ``','`` (comma)."
 msgstr ""
+"CSVファイルの各フィールドの区切り文字を指定します。デフォルトは ``','`` (カンマ) です。"
+
 
 #: ../../topics/spiders.rst:576
 msgid ""
 "A string with the enclosure character for each field in the CSV file "
 "Defaults to ``'\"'`` (quotation mark)."
 msgstr ""
+"CSVファイル内の各フィールドのエンクロージャ文字を含む文字列です。デフォルトは ``'\"'`` (ダブルクォテーション)です。"
 
 #: ../../topics/spiders.rst:581
 msgid "A list of the column names in the CSV file."
-msgstr ""
+msgstr "CSVファイルに含まれるカラム名のリストです。"
 
 #: ../../topics/spiders.rst:585
 msgid ""
@@ -631,16 +814,20 @@ msgid ""
 "gives the opportunity to override ``adapt_response`` and "
 "``process_results`` methods for pre- and post-processing purposes."
 msgstr ""
+"レスポンスと、CSVファイルを元に指定された(あるいは検知された)ヘッダーをキーとするdict(各行を表現する)を"
+"受け取ります。このSpiderも ``adapt_response`` と ``process_results`` メソッドをオーバライド"
+"することができ、前後に独自の処理を行うことができます。"
 
 #: ../../topics/spiders.rst:591
 msgid "CSVFeedSpider example"
-msgstr ""
+msgstr "CSVFeedSpiderの例"
 
 #: ../../topics/spiders.rst:593
 msgid ""
 "Let's see an example similar to the previous one, but using a "
 ":class:`CSVFeedSpider`::"
 msgstr ""
+"前述のものと似ていますが、 :class:`CSVFeedSpider` を用いた例を見てみましょう::"
 
 #: ../../topics/spiders.rst:618
 msgid "SitemapSpider"
@@ -651,32 +838,36 @@ msgid ""
 "SitemapSpider allows you to crawl a site by discovering the URLs using "
 "`Sitemaps`_."
 msgstr ""
+"SitemapSpiderは `Sitemaps`_ を使ってURLを探索しながらサイトをクロールすることができます。"
 
 #: ../../topics/spiders.rst:625
 msgid ""
 "It supports nested sitemaps and discovering sitemap urls from "
 "`robots.txt`_."
 msgstr ""
+"ネストされたSitemapや `robots.txt`_ からSitemapを取得して利用することもサポートされています。"
 
 #: ../../topics/spiders.rst:630
 msgid "A list of urls pointing to the sitemaps whose urls you want to crawl."
-msgstr ""
+msgstr "クロールしたいSitemapを指すURLのリストです。"
 
 #: ../../topics/spiders.rst:632
 msgid ""
 "You can also point to a `robots.txt`_ and it will be parsed to extract "
 "sitemap urls from it."
-msgstr ""
+msgstr "`robots.txt`_ を指定することもできます。その場合、その解析結果に含まれるSitemapが利用されます。"
 
 #: ../../topics/spiders.rst:637
 msgid "A list of tuples ``(regex, callback)`` where:"
-msgstr ""
+msgstr "タプル ``(regex, callback)`` のリストです:"
 
 #: ../../topics/spiders.rst:639
 msgid ""
 "``regex`` is a regular expression to match urls extracted from sitemaps. "
 "``regex`` can be either a str or a compiled regex object."
 msgstr ""
+"``regex`` はSitemapから抽出されたURLにマッチさせる正規表現です。"
+" ``regex`` は文字列でもコンパイル済のregexオブジェクトでも指定できます。"
 
 #: ../../topics/spiders.rst:642
 msgid ""
@@ -684,32 +875,40 @@ msgid ""
 "regular expression. ``callback`` can be a string (indicating the name of "
 "a spider method) or a callable."
 msgstr ""
+"callbackは正規表現にマッチしたURLを処理するためのコールバック関数です。"
+" ``callback`` は文字列(この場合、その名前を持つSpiderのメソッドが使用されます)か呼び出し可能オブジェクトを"
+"指定します。"
 
 #: ../../topics/spiders.rst:646 ../../topics/spiders.rst:670
 msgid "For example::"
-msgstr ""
+msgstr "例:"
 
 #: ../../topics/spiders.rst:650
 msgid ""
 "Rules are applied in order, and only the first one that matches will be "
 "used."
 msgstr ""
+"ルールは順番に適用され、最初に該当したものだけが使用されます。"
 
 #: ../../topics/spiders.rst:653
 msgid ""
 "If you omit this attribute, all urls found in sitemaps will be processed "
 "with the ``parse`` callback."
 msgstr ""
+"もしこの属性を省略した場合、Sitemapに含まれる全てのURLが処理され、 ``parse`` コールバックメソッドで"
+"処理されます。"
 
 #: ../../topics/spiders.rst:658
 msgid ""
 "A list of regexes of sitemap that should be followed. This is is only for"
 " sites that use `Sitemap index files`_ that point to other sitemap files."
 msgstr ""
+"従うべきSitemapの正規表現のリストです。これは ほかのSitemapファイルを指し示す"
+" `Sitemap index files`_ を使っているサイトでのみ利用されます。"
 
 #: ../../topics/spiders.rst:662
 msgid "By default, all sitemaps are followed."
-msgstr ""
+msgstr "デフォルトでは全てのSitemapに従います。"
 
 #: ../../topics/spiders.rst:666
 msgid ""
@@ -717,41 +916,49 @@ msgid ""
 "are links for the same website in another language passed within the same"
 " ``url`` block."
 msgstr ""
+"``url`` の代替リンクに従うかどうかを指定します。これらのリンクは、同じ ``url`` ブロック内で渡された別の言語の"
+"同じWEBサイトへのリンクです。"
 
 #: ../../topics/spiders.rst:677
 msgid ""
 "With ``sitemap_alternate_links`` set, this would retrieve both URLs. With"
 " ``sitemap_alternate_links`` disabled, only ``http://example.com/`` would"
 " be retrieved."
-msgstr ""
+msgstr "``sitemap_alternate_links``が設定されている場合、両方のURLが取得されます。"
+" ``sitemap_alternate_links`` が無効化されている場合は、 ``http://example.com/`` のみが"
+"取得されます。"
 
 #: ../../topics/spiders.rst:681
 msgid "Default is ``sitemap_alternate_links`` disabled."
-msgstr ""
+msgstr "デフォルトでは ``sitemap_alternate_links`` は無効化されています。"
 
 #: ../../topics/spiders.rst:685
 msgid "SitemapSpider examples"
-msgstr ""
+msgstr "SitemapSpiderの例"
 
 #: ../../topics/spiders.rst:687
 msgid ""
 "Simplest example: process all urls discovered through sitemaps using the "
 "``parse`` callback::"
 msgstr ""
+"もっともシンプルな例: Sitemapから発見された全てのURLを ``parse`` コールバックを用いて処理する場合:"
 
 #: ../../topics/spiders.rst:698
 msgid ""
 "Process some urls with certain callback and other urls with a different "
 "callback::"
 msgstr ""
+"いくつかのURLを特定のコールバックで処理し、他のURLは異なるコールバックで処理する場合::"
 
 #: ../../topics/spiders.rst:716
 msgid ""
 "Follow sitemaps defined in the `robots.txt`_ file and only follow "
 "sitemaps whose url contains ``/sitemap_shop``::"
 msgstr ""
+"`robots.txt`_ ファイルに定義されたSitemapのうち ``/sitemap_shop`` をURLに含んだものにのみ"
+"従う場合::"
 
 #: ../../topics/spiders.rst:731
 msgid "Combine SitemapSpider with other sources of urls::"
-msgstr ""
+msgstr "SitemapSpiderを他のソースから取得されたURLと組み合わせる場合::"
 
