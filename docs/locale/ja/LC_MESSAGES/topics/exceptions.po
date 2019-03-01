@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 
 #: ../../topics/exceptions.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/exceptions.rst:33
@@ -118,4 +118,7 @@ msgstr ""
 #: ../../topics/exceptions.rst:78
 msgid "This exception is raised to indicate an unsupported feature."
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
 

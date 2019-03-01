@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-07 14:19+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ../../contributing.rst:9
 msgid ""
 "Double check that you are reading the most recent version of this "
-"document at https://doc.scrapy.org/en/master/contributing.html"
+"document at https://docs.scrapy.org/en/master/contributing.html"
 msgstr ""
 
 #: ../../contributing.rst:12
@@ -34,8 +34,8 @@ msgstr ""
 #: ../../contributing.rst:14
 msgid ""
 "Blog about Scrapy. Tell the world how you're using Scrapy. This will help"
-" newcomers with more examples and the Scrapy project to increase its "
-"visibility."
+" newcomers with more examples and will help the Scrapy project to "
+"increase its visibility."
 msgstr ""
 
 #: ../../contributing.rst:18
@@ -77,7 +77,7 @@ msgstr ""
 #: ../../contributing.rst:41
 msgid ""
 "Well-written bug reports are very helpful, so keep in mind the following "
-"guidelines when reporting a new bug."
+"guidelines when you're going to report a new bug."
 msgstr ""
 
 #: ../../contributing.rst:44
@@ -392,5 +392,27 @@ msgstr ""
 #~ "helpful, so keep in mind the "
 #~ "following guidelines when you're going "
 #~ "to report a new bug."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Double check that you are reading "
+#~ "the most recent version of this "
+#~ "document at "
+#~ "https://doc.scrapy.org/en/master/contributing.html"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Blog about Scrapy. Tell the world "
+#~ "how you're using Scrapy. This will "
+#~ "help newcomers with more examples and"
+#~ " the Scrapy project to increase its"
+#~ " visibility."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Well-written bug reports are very "
+#~ "helpful, so keep in mind the "
+#~ "following guidelines when reporting a "
+#~ "new bug."
 #~ msgstr ""
 

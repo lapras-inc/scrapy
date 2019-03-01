@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgid ""
 msgstr ""
 
 #: ../../topics/contracts.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/contracts.rst:79
@@ -103,26 +103,42 @@ msgstr ""
 #: ../../topics/contracts.rst:88
 msgid ""
 "This receives a ``dict`` as an argument containing default arguments for "
-":class:`~scrapy.http.Request` object. Must return the same or a modified "
-"version of it."
+"request object. :class:`~scrapy.http.Request` is used by default, but "
+"this can be changed with the ``request_cls`` attribute. If multiple "
+"contracts in chain have this attribute defined, the last one is used."
 msgstr ""
 
-#: ../../topics/contracts.rst:94
+#: ../../topics/contracts.rst:93
+msgid "Must return the same or a modified version of it."
+msgstr ""
+
+#: ../../topics/contracts.rst:97
 msgid ""
 "This allows hooking in various checks on the response received from the "
 "sample request, before it's being passed to the callback."
 msgstr ""
 
-#: ../../topics/contracts.rst:99
+#: ../../topics/contracts.rst:102
 msgid ""
 "This allows processing the output of the callback. Iterators are "
 "converted listified before being passed to this hook."
 msgstr ""
 
-#: ../../topics/contracts.rst:102
+#: ../../topics/contracts.rst:105
 msgid ""
 "Here is a demo contract which checks the presence of a custom header in "
 "the response received. Raise :class:`scrapy.exceptions.ContractFail` in "
 "order to get the failures pretty printed::"
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This receives a ``dict`` as an "
+#~ "argument containing default arguments for "
+#~ ":class:`~scrapy.http.Request` object. Must return"
+#~ " the same or a modified version "
+#~ "of it."
+#~ msgstr ""
 

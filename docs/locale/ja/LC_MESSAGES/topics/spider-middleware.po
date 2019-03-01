@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-07 14:19+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgid ""
 msgstr ""
 
 #: ../../topics/spider-middleware.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/spider-middleware.rst:85
@@ -291,33 +291,35 @@ msgid ""
 msgstr ""
 
 #: ../../topics/spider-middleware.rst:215
-msgid ":setting:`DEPTH_STATS` - Whether to collect depth stats."
+msgid ""
+":setting:`DEPTH_STATS_VERBOSE` - Whether to collect the number of "
+"requests for each depth."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:216
+#: ../../topics/spider-middleware.rst:217
 msgid ""
 ":setting:`DEPTH_PRIORITY` - Whether to prioritize the requests based on "
 "their depth."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:220
+#: ../../topics/spider-middleware.rst:221
 msgid "HttpErrorMiddleware"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:227
+#: ../../topics/spider-middleware.rst:228
 msgid ""
 "Filter out unsuccessful (erroneous) HTTP responses so that spiders don't "
 "have to deal with them, which (most of the time) imposes an overhead, "
 "consumes more resources, and makes the spider logic more complex."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:231
+#: ../../topics/spider-middleware.rst:232
 msgid ""
 "According to the `HTTP standard`_, successful responses are those whose "
 "status codes are in the 200-300 range."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:236
+#: ../../topics/spider-middleware.rst:237
 msgid ""
 "If you still want to process response codes outside that range, you can "
 "specify which response codes the spider is able to handle using the "
@@ -325,13 +327,13 @@ msgid ""
 ":setting:`HTTPERROR_ALLOWED_CODES` setting."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:241
+#: ../../topics/spider-middleware.rst:242
 msgid ""
 "For example, if you want your spider to handle 404 responses you can do "
 "this::"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:251
+#: ../../topics/spider-middleware.rst:252
 msgid ""
 "The ``handle_httpstatus_list`` key of :attr:`Request.meta "
 "<scrapy.http.Request.meta>` can also be used to specify which response "
@@ -340,53 +342,53 @@ msgid ""
 "code for a request."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:256
+#: ../../topics/spider-middleware.rst:257
 msgid ""
 "Keep in mind, however, that it's usually a bad idea to handle non-200 "
 "responses, unless you really know what you're doing."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:259
+#: ../../topics/spider-middleware.rst:260
 msgid "For more information see: `HTTP Status Code Definitions`_."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:264
+#: ../../topics/spider-middleware.rst:265
 msgid "HttpErrorMiddleware settings"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:269
+#: ../../topics/spider-middleware.rst:270
 msgid "HTTPERROR_ALLOWED_CODES"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:271
+#: ../../topics/spider-middleware.rst:272
 msgid "Default: ``[]``"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:273
+#: ../../topics/spider-middleware.rst:274
 msgid "Pass all responses with non-200 status codes contained in this list."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:278
+#: ../../topics/spider-middleware.rst:279
 msgid "HTTPERROR_ALLOW_ALL"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:280
+#: ../../topics/spider-middleware.rst:281
 msgid "Default: ``False``"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:282
+#: ../../topics/spider-middleware.rst:283
 msgid "Pass all responses, regardless of its status code."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:285
+#: ../../topics/spider-middleware.rst:286
 msgid "OffsiteMiddleware"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:292
+#: ../../topics/spider-middleware.rst:293
 msgid "Filters out Requests for URLs outside the domains covered by the spider."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:294
+#: ../../topics/spider-middleware.rst:295
 msgid ""
 "This middleware filters out every request whose host names aren't in the "
 "spider's :attr:`~scrapy.spiders.Spider.allowed_domains` attribute. All "
@@ -395,14 +397,14 @@ msgid ""
 "``www2.example.com`` nor ``example.com``."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:300
+#: ../../topics/spider-middleware.rst:301
 msgid ""
 "When your spider returns a request for a domain not belonging to those "
 "covered by the spider, this middleware will log a debug message similar "
 "to this one::"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:306
+#: ../../topics/spider-middleware.rst:307
 msgid ""
 "To avoid filling the log with too much noise, it will only print one of "
 "these messages for each new domain filtered. So, for example, if another "
@@ -411,161 +413,161 @@ msgid ""
 "message will be printed (but only for the first request filtered)."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:312
+#: ../../topics/spider-middleware.rst:313
 msgid ""
 "If the spider doesn't define an "
 ":attr:`~scrapy.spiders.Spider.allowed_domains` attribute, or the "
 "attribute is empty, the offsite middleware will allow all requests."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:316
+#: ../../topics/spider-middleware.rst:317
 msgid ""
 "If the request has the :attr:`~scrapy.http.Request.dont_filter` attribute"
 " set, the offsite middleware will allow the request even if its domain is"
 " not listed in allowed domains."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:322
+#: ../../topics/spider-middleware.rst:323
 msgid "RefererMiddleware"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:329
+#: ../../topics/spider-middleware.rst:330
 msgid ""
 "Populates Request ``Referer`` header, based on the URL of the Response "
 "which generated it."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:333
+#: ../../topics/spider-middleware.rst:334
 msgid "RefererMiddleware settings"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:338
+#: ../../topics/spider-middleware.rst:339
 msgid "REFERER_ENABLED"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:342
+#: ../../topics/spider-middleware.rst:343
 msgid "Default: ``True``"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:344
+#: ../../topics/spider-middleware.rst:345
 msgid "Whether to enable referer middleware."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:349
+#: ../../topics/spider-middleware.rst:350
 msgid "REFERRER_POLICY"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:353
+#: ../../topics/spider-middleware.rst:354
 msgid "Default: ``'scrapy.spidermiddlewares.referer.DefaultReferrerPolicy'``"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:357
+#: ../../topics/spider-middleware.rst:358
 msgid "`Referrer Policy`_ to apply when populating Request \"Referer\" header."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:360
+#: ../../topics/spider-middleware.rst:361
 msgid ""
 "You can also set the Referrer Policy per request, using the special "
 "``\"referrer_policy\"`` :ref:`Request.meta <topics-request-meta>` key, "
 "with the same acceptable values as for the ``REFERRER_POLICY`` setting."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:365
+#: ../../topics/spider-middleware.rst:366
 msgid "Acceptable values for REFERRER_POLICY"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:367
+#: ../../topics/spider-middleware.rst:368
 msgid ""
 "either a path to a ``scrapy.spidermiddlewares.referer.ReferrerPolicy`` "
 "subclass — a custom policy or one of the built-in ones (see classes "
 "below),"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:369
+#: ../../topics/spider-middleware.rst:370
 msgid "or one of the standard W3C-defined string values,"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:370
+#: ../../topics/spider-middleware.rst:371
 msgid "or the special ``\"scrapy-default\"``."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:373
+#: ../../topics/spider-middleware.rst:374
 msgid "String value"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:373
+#: ../../topics/spider-middleware.rst:374
 msgid "Class name (as a string)"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:375
+#: ../../topics/spider-middleware.rst:376
 msgid "``\"scrapy-default\"`` (default)"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:375
+#: ../../topics/spider-middleware.rst:376
 msgid ":class:`scrapy.spidermiddlewares.referer.DefaultReferrerPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:376
+#: ../../topics/spider-middleware.rst:377
 msgid "`\"no-referrer\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:376
+#: ../../topics/spider-middleware.rst:377
 msgid ":class:`scrapy.spidermiddlewares.referer.NoReferrerPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:377
+#: ../../topics/spider-middleware.rst:378
 msgid "`\"no-referrer-when-downgrade\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:377
+#: ../../topics/spider-middleware.rst:378
 msgid ":class:`scrapy.spidermiddlewares.referer.NoReferrerWhenDowngradePolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:378
+#: ../../topics/spider-middleware.rst:379
 msgid "`\"same-origin\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:378
+#: ../../topics/spider-middleware.rst:379
 msgid ":class:`scrapy.spidermiddlewares.referer.SameOriginPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:379
+#: ../../topics/spider-middleware.rst:380
 msgid "`\"origin\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:379
+#: ../../topics/spider-middleware.rst:380
 msgid ":class:`scrapy.spidermiddlewares.referer.OriginPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:380
+#: ../../topics/spider-middleware.rst:381
 msgid "`\"strict-origin\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:380
+#: ../../topics/spider-middleware.rst:381
 msgid ":class:`scrapy.spidermiddlewares.referer.StrictOriginPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:381
+#: ../../topics/spider-middleware.rst:382
 msgid "`\"origin-when-cross-origin\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:381
+#: ../../topics/spider-middleware.rst:382
 msgid ":class:`scrapy.spidermiddlewares.referer.OriginWhenCrossOriginPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:382
+#: ../../topics/spider-middleware.rst:383
 msgid "`\"strict-origin-when-cross-origin\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:382
+#: ../../topics/spider-middleware.rst:383
 msgid ":class:`scrapy.spidermiddlewares.referer.StrictOriginWhenCrossOriginPolicy`"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:383
+#: ../../topics/spider-middleware.rst:384
 msgid "`\"unsafe-url\"`_"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:383
+#: ../../topics/spider-middleware.rst:384
 msgid ":class:`scrapy.spidermiddlewares.referer.UnsafeUrlPolicy`"
 msgstr ""
 
@@ -576,7 +578,7 @@ msgid ""
 "``s3://`` scheme."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:388
+#: ../../topics/spider-middleware.rst:389
 msgid ""
 "Scrapy's default referrer policy — just like `\"no-referrer-when-"
 "downgrade\"`_, the W3C-recommended value for browsers — will send a non-"
@@ -584,7 +586,7 @@ msgid ""
 " even if the domain is different."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:393
+#: ../../topics/spider-middleware.rst:394
 msgid ""
 "`\"same-origin\"`_ may be a better choice if you want to remove referrer "
 "information for cross-domain requests."
@@ -628,13 +630,13 @@ msgid ""
 "specified."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:400
+#: ../../topics/spider-middleware.rst:401
 msgid ""
 "\"no-referrer-when-downgrade\" policy is the W3C-recommended default, and"
 " is used by major web browsers."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:403
+#: ../../topics/spider-middleware.rst:404
 msgid ""
 "However, it is NOT Scrapy's default referrer policy (see "
 ":class:`DefaultReferrerPolicy`)."
@@ -755,25 +757,25 @@ msgid ""
 "sensitive documents."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:417
+#: ../../topics/spider-middleware.rst:418
 msgid "\"unsafe-url\" policy is NOT recommended."
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:431
+#: ../../topics/spider-middleware.rst:432
 msgid "UrlLengthMiddleware"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:438
+#: ../../topics/spider-middleware.rst:439
 msgid "Filters out requests with URLs longer than URLLENGTH_LIMIT"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:440
+#: ../../topics/spider-middleware.rst:441
 msgid ""
 "The :class:`UrlLengthMiddleware` can be configured through the following "
 "settings (see the settings documentation for more info):"
 msgstr ""
 
-#: ../../topics/spider-middleware.rst:443
+#: ../../topics/spider-middleware.rst:444
 msgid ""
 ":setting:`URLLENGTH_LIMIT` - The maximum URL length to allow for crawled "
 "URLs."
@@ -783,5 +785,11 @@ msgstr ""
 #~ ":setting:`DEPTH_STATS_VERBOSE` - Whether to "
 #~ "collect the number of requests for "
 #~ "each depth."
+#~ msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
+
+#~ msgid ":setting:`DEPTH_STATS` - Whether to collect depth stats."
 #~ msgstr ""
 

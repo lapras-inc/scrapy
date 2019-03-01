@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -350,7 +350,7 @@ msgid "Initialize logging defaults for Scrapy."
 msgstr ""
 
 #: ../../topics/logging.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: of scrapy.utils.log.configure_logging:3
@@ -414,4 +414,7 @@ msgid ""
 "Refer to :ref:`run-from-script` for more details about using Scrapy this "
 "way."
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
 

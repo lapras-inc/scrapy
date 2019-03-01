@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgid "How to use it"
 msgstr ""
 
 #: ../../topics/jobs.rst:33
-msgid "To start a spider with persistence supported enabled, run it like this::"
+msgid "To start a spider with persistence support enabled, run it like this::"
 msgstr ""
 
 #: ../../topics/jobs.rst:37
@@ -146,4 +146,9 @@ msgid ""
 "the :setting:`SCHEDULER_DEBUG` setting to ``True`` in the project's "
 "settings page. It is ``False`` by default."
 msgstr ""
+
+#~ msgid ""
+#~ "To start a spider with persistence "
+#~ "supported enabled, run it like this::"
+#~ msgstr ""
 

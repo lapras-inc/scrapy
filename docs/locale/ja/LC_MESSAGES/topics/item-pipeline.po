@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,7 +78,7 @@ msgid ""
 msgstr ""
 
 #: ../../topics/item-pipeline.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/item-pipeline.rst:36
@@ -214,4 +214,7 @@ msgid ""
 "valued classes. It's customary to define these numbers in the 0-1000 "
 "range."
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
 

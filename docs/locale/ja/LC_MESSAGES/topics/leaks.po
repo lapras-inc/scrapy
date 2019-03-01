@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,7 +243,7 @@ msgid "Print a report of live references, grouped by class name."
 msgstr ""
 
 #: ../../topics/leaks.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/leaks.rst:178
@@ -383,4 +383,7 @@ msgid ""
 "smaller jobs or enable :ref:`persistent job queue <topics-jobs>` and "
 "stop/start spider from time to time."
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
 

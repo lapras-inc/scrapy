@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgid ""
 msgstr ""
 
 #: ../../topics/link-extractors.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/link-extractors.rst:59
@@ -205,4 +205,7 @@ msgid ""
 "it off (e.g. if you're extracting urls from elements or attributes which "
 "allow leading/trailing whitespaces)."
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
 

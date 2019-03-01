@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-07 14:19+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -146,7 +146,7 @@ msgid ""
 msgstr ""
 
 #: ../../topics/downloader-middleware.rst
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: ../../topics/downloader-middleware.rst:96
@@ -1226,7 +1226,7 @@ msgid "RETRY_HTTP_CODES"
 msgstr ""
 
 #: ../../topics/downloader-middleware.rst:885
-msgid "Default: ``[500, 502, 503, 504, 408]``"
+msgid "Default: ``[500, 502, 503, 504, 522, 524, 408]``"
 msgstr ""
 
 #: ../../topics/downloader-middleware.rst:887
@@ -1355,5 +1355,11 @@ msgid ""
 msgstr ""
 
 #~ msgid "Default: ``[500, 502, 503, 504, 522, 524, 408]``"
+#~ msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
+
+#~ msgid "Default: ``[500, 502, 503, 504, 408]``"
 #~ msgstr ""
 

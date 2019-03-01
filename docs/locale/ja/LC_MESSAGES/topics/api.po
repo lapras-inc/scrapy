@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scrapy 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 09:29+0900\n"
+"POT-Creation-Date: 2019-03-01 15:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -210,7 +210,7 @@ msgstr ""
 #: scrapy.settings.BaseSettings.setmodule scrapy.settings.BaseSettings.update
 #: scrapy.signalmanager.SignalManager.connect
 #: scrapy.signalmanager.SignalManager.disconnect_all
-msgid "Parameters"
+msgid "パラメータ"
 msgstr ""
 
 #: of scrapy.crawler.CrawlerProcess.crawl:12
@@ -277,7 +277,7 @@ msgid "Returns a deferred that is fired when they all have ended."
 msgstr ""
 
 #: of scrapy.crawler.CrawlerProcess:1
-msgid "Bases: :class:`scrapy.crawler.CrawlerRunner`"
+msgid "ベースクラス: :class:`scrapy.crawler.CrawlerRunner`"
 msgstr ""
 
 #: of scrapy.crawler.CrawlerProcess:1
@@ -358,7 +358,7 @@ msgid ""
 msgstr ""
 
 #: of scrapy.settings.Settings:1
-msgid "Bases: :class:`scrapy.settings.BaseSettings`"
+msgid "ベースクラス: :class:`scrapy.settings.BaseSettings`"
 msgstr ""
 
 #: of scrapy.settings.Settings:1
@@ -803,4 +803,13 @@ msgid ""
 "Close the given spider. After this is called, no more specific stats can "
 "be accessed or collected."
 msgstr ""
+
+#~ msgid "Parameters"
+#~ msgstr ""
+
+#~ msgid "Bases: :class:`scrapy.crawler.CrawlerRunner`"
+#~ msgstr ""
+
+#~ msgid "Bases: :class:`scrapy.settings.BaseSettings`"
+#~ msgstr ""
 
